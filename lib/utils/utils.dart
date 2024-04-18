@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:zi_dev_web/sections/about/about.dart';
 import 'package:zi_dev_web/sections/contact/contact.dart';
 import 'package:zi_dev_web/sections/home/home.dart';
-import 'package:zi_dev_web/sections/portfolio/portfolio.dart';
 import 'package:zi_dev_web/widget/footer.dart';
 
 class StaticUtils {
@@ -56,7 +55,7 @@ class BodyUtils {
     HomePage(),
     About(),
     // Services(),
-    Portfolio(),
+    // Portfolio(),
     Contact(),
     Footer(),
   ];
