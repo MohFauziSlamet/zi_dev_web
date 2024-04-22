@@ -14,6 +14,7 @@ class HomeDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    AppTheme.init(context);
 
     return Container(
       height: size.height * 1.025,

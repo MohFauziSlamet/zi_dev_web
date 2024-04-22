@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zi_dev_web/configs/app_dimensions.dart';
+import 'package:zi_dev_web/configs/app_theme.dart';
 import 'package:zi_dev_web/configs/core_theme.dart';
 
 class AppText {
@@ -25,9 +26,14 @@ class AppText {
   static TextStyle? l2;
   static TextStyle? l2b;
 
-  static init() {
+  static init(BuildContext context) {
+    AppTheme.init(context);
     const b = FontWeight.bold;
-    const baseStyle = TextStyle(fontFamily: fontFamily);
+
+    var baseStyle = TextStyle(
+      fontFamily: fontFamily,
+      color: AppTheme.c!.text!,
+    );
 
     h1 = baseStyle.copyWith(fontSize: AppDimensions.font(22));
     h1b = h1!.copyWith(fontWeight: b);
@@ -44,7 +50,9 @@ class AppText {
     b2 = baseStyle.copyWith(fontSize: AppDimensions.font(8));
     b2b = b2!.copyWith(fontWeight: b);
 
-    l1 = baseStyle.copyWith(fontSize: AppDimensions.font(6));
+    l1 = baseStyle.copyWith(
+      fontSize: AppDimensions.font(6),
+    );
     l1b = l1!.copyWith(fontWeight: b);
 
     l2 = baseStyle.copyWith(fontSize: AppDimensions.font(4));

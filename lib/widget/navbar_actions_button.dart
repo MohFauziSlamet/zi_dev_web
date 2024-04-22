@@ -16,6 +16,7 @@ class NavBarActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scrollProvider = Provider.of<ScrollProvider>(context);
+    AppText.init(context);
 
     return EntranceFader(
       offset: const Offset(0, -10),

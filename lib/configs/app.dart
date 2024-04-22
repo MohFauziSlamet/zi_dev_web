@@ -16,7 +16,7 @@ class App {
     AppTheme.init(context);
     UIProps.init();
     Space.init();
-    AppText.init();
+    AppText.init(context);
     isLtr = Directionality.of(context) == TextDirection.ltr;
   }
 }
