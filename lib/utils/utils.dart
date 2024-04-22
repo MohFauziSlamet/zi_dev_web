@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:zi_dev_web/sections/about/about.dart';
-import 'package:zi_dev_web/sections/contact/contact.dart';
-import 'package:zi_dev_web/sections/home/home.dart';
-import 'package:zi_dev_web/widget/footer.dart';
+
 
 class StaticUtils {
   static const String hi = 'assets/hi.gif';
@@ -50,13 +46,3 @@ class StaticUtils {
   static const String gitHub = 'https://github.com/mhmzdev';
 }
 
-class BodyUtils {
-  static const List<Widget> views = [
-    HomePage(),
-    About(),
-    // Services(),
-    // Portfolio(),
-    Contact(),
-    Footer(),
-  ];
-}

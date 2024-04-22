@@ -13,6 +13,8 @@ class _NavbarDesktop extends StatelessWidget {
       child: Row(
         children: [
           const NavBarLogo(),
+
+          /// NavBar Item
           Space.xm!,
           ...NavBarUtils.names.asMap().entries.map(
                 (e) => NavBarActionButton(
@@ -20,6 +22,8 @@ class _NavbarDesktop extends StatelessWidget {
                   index: e.key,
                 ),
               ),
+
+          /// Button Tapped Resume
           EntranceFader(
             offset: const Offset(0, -10),
             delay: const Duration(milliseconds: 100),
@@ -48,6 +52,8 @@ class _NavbarDesktop extends StatelessWidget {
             ),
           ),
           Space.x!,
+
+          /// Button Tapped Switch Theme
           Switch(
             inactiveTrackColor: Colors.grey,
             value: appProvider.isDark,

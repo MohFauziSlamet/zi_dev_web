@@ -16,8 +16,6 @@ class NavBarLogo extends StatelessWidget {
         Text(
           "zi_dev",
           style: AppText.b1b!.copyWith(
-            // fontFamily: 'Agustina',
-            // fontFamily: fontFamily,
             fontFamily: 'Montserrat',
           ),
         ),

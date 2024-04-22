@@ -24,7 +24,7 @@ class AppTheme {
     background: Colors.grey[900],
     backgroundSub: const Color(0xff1c1c1e),
     scaffold: const Color(0xff0e0e0e),
-    text: Colors.white,
+    text: const Color(0xfffefefe),
     textSub2: Colors.white.withOpacity(0.25),
   );
 
@@ -35,6 +35,5 @@ class AppTheme {
     c = isDark(context) ? dark : light;
   }
 
-  static bool isDark(BuildContext context) =>
-      Theme.of(context).brightness == Brightness.dark;
+  static bool isDark(BuildContext context) => Theme.of(context).brightness == Brightness.dark;
 }

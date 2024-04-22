@@ -1,7 +1,6 @@
-import 'package:provider/provider.dart';
-
-import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:universal_html/html.dart' as html;
 import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/app.dart';
 import 'package:zi_dev_web/configs/app_dimensions.dart';
@@ -13,15 +12,16 @@ import 'package:zi_dev_web/provider/app_provider.dart';
 import 'package:zi_dev_web/provider/drawer_provider.dart';
 import 'package:zi_dev_web/provider/scroll_provider.dart';
 import 'package:zi_dev_web/responsive/responsive.dart';
+import 'package:zi_dev_web/sections/main_section/constan/body_const.dart';
 import 'package:zi_dev_web/utils/navbar_utils.dart';
 import 'package:zi_dev_web/utils/utils.dart';
 import 'package:zi_dev_web/widget/arrow_on_top.dart';
 import 'package:zi_dev_web/widget/navbar_actions_button.dart';
-import 'package:zi_dev_web/widget/navbar_logo.dart';
+import 'package:zi_dev_web/sections/main_section/widgets/navbar_logo.dart';
 
-part 'widgets/_navbar_desktop.dart';
-part 'widgets/_mobile_drawer.dart';
 part 'widgets/_body.dart';
+part 'widgets/_mobile_drawer.dart';
+part 'widgets/_navbar_desktop.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

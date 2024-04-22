@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:zi_dev_web/provider/app_provider.dart';
-import 'package:zi_dev_web/provider/drawer_provider.dart';
-import 'package:zi_dev_web/provider/scroll_provider.dart';
-import 'package:zi_dev_web/sections/main/main_section.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:zi_dev_web/configs/core_theme.dart' as theme;
+import 'package:zi_dev_web/provider/app_provider.dart';
+import 'package:zi_dev_web/provider/drawer_provider.dart';
+import 'package:zi_dev_web/provider/scroll_provider.dart';
+import 'package:zi_dev_web/sections/main_section/main_section.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

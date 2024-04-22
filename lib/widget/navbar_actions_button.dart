@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/configs.dart';
 import 'package:zi_dev_web/provider/scroll_provider.dart';
-import 'package:provider/provider.dart';
 
 class NavBarActionButton extends StatelessWidget {
   final String label;
