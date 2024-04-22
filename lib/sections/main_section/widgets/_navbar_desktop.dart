@@ -6,6 +6,7 @@ class _NavbarDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appProvider = Provider.of<AppProvider>(context);
+    AppText.init(context);
 
     return Container(
       padding: Space.all(),

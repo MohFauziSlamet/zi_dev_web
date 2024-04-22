@@ -32,7 +32,7 @@ class AppText {
 
     var baseStyle = TextStyle(
       fontFamily: fontFamily,
-      color: AppTheme.c!.text!,
+      color: AppTheme.c!.text!, // default text color
     );
 
     h1 = baseStyle.copyWith(fontSize: AppDimensions.font(22));
