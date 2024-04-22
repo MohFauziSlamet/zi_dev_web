@@ -15,20 +15,20 @@ class NavBarLogo extends StatelessWidget {
         Text(
           "< ",
           style: AppText.b1!.copyWith(
-            color: appProvider.isDark ? Colors.black : Colors.white,
+            color: appProvider.isDark ? Colors.white : Colors.black,
           ),
         ),
         Text(
           "zi_dev",
           style: AppText.b1b!.copyWith(
             fontFamily: 'Montserrat',
-            color: appProvider.isDark ? Colors.black : Colors.white,
+            color: appProvider.isDark ? Colors.white : Colors.black,
           ),
         ),
         Text(
           MediaQuery.of(context).size.width >= 1000 ? " />\t\t" : " />",
           style: AppText.b1!.copyWith(
-            color: appProvider.isDark ? Colors.black : Colors.white,
+            color: appProvider.isDark ? Colors.white : Colors.black,
           ),
         )
       ],
