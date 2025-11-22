@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
+import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/app_dimensions.dart';
 import 'package:zi_dev_web/configs/app_theme.dart';
 import 'package:zi_dev_web/configs/app_typography.dart';
@@ -37,9 +38,17 @@ class AboutTab extends StatelessWidget {
             ),
           ),
           Space.y1!,
-          Image.asset(
-            StaticUtils.blackWhitePhoto,
-            height: height * 0.27,
+          Opacity(
+            opacity: 0.9,
+            child: EntranceFader(
+              offset: const Offset(0, 0),
+              delay: const Duration(seconds: 1),
+              duration: const Duration(milliseconds: 800),
+              child: Image.asset(
+                StaticUtils.blackWhitePhoto,
+                height: height * 0.27,
+              ),
+            ),
           ),
           SizedBox(
             height: height * 0.03,
@@ -84,7 +93,7 @@ class AboutTab extends StatelessWidget {
             padding: EdgeInsets.zero,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 5.5,
-              crossAxisCount: 4,
+              crossAxisCount: 3,
               mainAxisSpacing: 6,
               crossAxisSpacing: 6,
             ),
@@ -118,7 +127,7 @@ class AboutTab extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                width: width > 710 ? width * 0.2 : width * 0.05,
+                width: width * 0.1,
               ),
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

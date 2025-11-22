@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/configs.dart';
-import 'package:zi_dev_web/provider/scroll_provider.dart';
+import 'package:zi_dev_web/controller/theme_data_controller.dart';
 
 class NavBarActionButton extends StatelessWidget {
   final String label;
@@ -15,7 +15,7 @@ class NavBarActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scrollProvider = Provider.of<ScrollProvider>(context);
+    final controller = Get.find<HomeController>();
     AppText.init(context);
 
     return EntranceFader(
@@ -32,7 +32,7 @@ class NavBarActionButton extends StatelessWidget {
           highlightColor: Colors.white54,
           hoverColor: AppTheme.c!.primary,
           onPressed: () {
-            scrollProvider.scroll(index);
+            controller.scroll(index);
           },
           child: Padding(
             padding: Space.all(0.5, 0.45),

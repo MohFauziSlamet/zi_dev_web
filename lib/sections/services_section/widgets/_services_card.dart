@@ -22,7 +22,7 @@ class _ServiceCardState extends State<_ServiceCard> {
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
+    final controller = Get.find<HomeController>();
 
     return InkWell(
       hoverColor: Colors.transparent,
@@ -50,7 +50,7 @@ class _ServiceCardState extends State<_ServiceCard> {
           height: AppDimensions.normalize(80),
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
           decoration: BoxDecoration(
-            color: appProvider.isDark ? Colors.grey[900] : Colors.white,
+            color: controller.isDark ? Colors.grey[900] : Colors.white,
             borderRadius: BorderRadius.circular(15),
             boxShadow: isHover
                 ? [
@@ -78,7 +78,7 @@ class _ServiceCardState extends State<_ServiceCard> {
           height: AppDimensions.normalize(80),
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
           decoration: BoxDecoration(
-            color: appProvider.isDark ? Colors.grey[900] : Colors.white,
+            color: controller.isDark ? Colors.grey[900] : Colors.white,
             borderRadius: BorderRadius.circular(15),
             boxShadow: isHover
                 ? [
@@ -102,8 +102,7 @@ class _ServiceCardState extends State<_ServiceCard> {
               Image.asset(
                 widget.serviceIcon,
                 height: AppDimensions.normalize(30),
-                color: widget.serviceIcon.contains(StaticUtils.openSource) &&
-                        !appProvider.isDark
+                color: widget.serviceIcon.contains(StaticUtils.openSource) && !controller.isDark
                     ? Colors.black
                     : null,
               ),

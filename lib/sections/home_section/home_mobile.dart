@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/app_dimensions.dart';
 import 'package:zi_dev_web/configs/app_theme.dart';
 import 'package:zi_dev_web/configs/app_typography.dart';
@@ -24,11 +25,16 @@ class HomeMobile extends StatelessWidget {
             right: 0.0,
             child: Opacity(
               opacity: 0.9,
-              child: Image.asset(
-                StaticUtils.blackWhitePhoto,
-                height: AppDimensions.normalize(150),
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
+              child: EntranceFader(
+                offset: const Offset(0, 0),
+                delay: const Duration(seconds: 1),
+                duration: const Duration(milliseconds: 800),
+                child: Image.asset(
+                  StaticUtils.blackWhitePhoto,
+                  height: AppDimensions.normalize(150),
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

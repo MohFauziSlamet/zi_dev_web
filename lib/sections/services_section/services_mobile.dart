@@ -5,8 +5,8 @@ class ServiceMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
+
     return Column(
       children: [
         const CustomSectionHeading(
@@ -28,7 +28,7 @@ class ServiceMobile extends StatelessWidget {
           ),
           options: CarouselOptions(
             viewportFraction: 0.65,
-            height: width < 450 ? height * 0.4 : height * 0.4,
+            height: size.height * 0.4,
             autoPlay: true,
             autoPlayInterval: const Duration(seconds: 5),
             enlargeCenterPage: true,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 import 'package:zi_dev_web/configs/app_typography.dart';
-import 'package:zi_dev_web/provider/app_provider.dart';
+import 'package:zi_dev_web/controller/theme_data_controller.dart';
 
 class AboutMeData extends StatelessWidget {
   final String data;
@@ -16,7 +16,7 @@ class AboutMeData extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
+    final controller = Get.find<HomeController>();
 
     return Align(
       alignment: alignment ?? Alignment.center,
@@ -26,13 +26,13 @@ class AboutMeData extends StatelessWidget {
             TextSpan(
               text: "$data: ",
               style: AppText.l1b!.copyWith(
-                color: appProvider.isDark ? Colors.white : Colors.black,
+                color: controller.isDark ? Colors.white : Colors.black,
               ),
             ),
             TextSpan(
               text: " $information\n",
               style: AppText.l1!.copyWith(
-                color: appProvider.isDark ? Colors.white : Colors.black,
+                color: controller.isDark ? Colors.white : Colors.black,
               ),
             ),
           ],

@@ -5,12 +5,12 @@ class _NavbarDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
+    final controller = Get.find<HomeController>();
     AppText.init(context);
 
     return Container(
       padding: Space.all(),
-      color: appProvider.isDark ? Colors.black : Colors.white,
+      color: controller.isDark ? Colors.black : Colors.white,
       child: Row(
         children: [
           const NavBarLogo(),
@@ -57,9 +57,9 @@ class _NavbarDesktop extends StatelessWidget {
           /// Button Tapped Switch Theme
           Switch(
             inactiveTrackColor: Colors.grey,
-            value: appProvider.isDark,
+            value: controller.isDark,
             onChanged: (value) {
-              appProvider.setTheme(
+              controller.setTheme(
                 !value ? ThemeMode.light : ThemeMode.dark,
               );
             },
@@ -77,7 +77,7 @@ class _NavBarTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final drawerProvider = Provider.of<DrawerProvider>(context);
+    final controller = Get.find<HomeController>();
 
     return Padding(
       padding: Space.v!,
@@ -88,7 +88,7 @@ class _NavBarTablet extends StatelessWidget {
             highlightColor: Colors.white54,
             splashRadius: AppDimensions.normalize(10),
             onPressed: () {
-              drawerProvider.key.currentState!.openDrawer();
+              controller.key.currentState!.openDrawer();
             },
             icon: const Icon(
               Icons.menu,

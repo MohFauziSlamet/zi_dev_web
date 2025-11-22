@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
+import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/app_dimensions.dart';
 import 'package:zi_dev_web/configs/app_theme.dart';
 import 'package:zi_dev_web/configs/app_typography.dart';
@@ -30,9 +31,17 @@ class AboutMobile extends StatelessWidget {
             text: 'Get to know me :)',
           ),
           Space.y1!,
-          Image.asset(
-            StaticUtils.blackWhitePhoto,
-            height: height * 0.27,
+          Opacity(
+            opacity: 0.9,
+            child: EntranceFader(
+              offset: const Offset(0, 0),
+              delay: const Duration(seconds: 1),
+              duration: const Duration(milliseconds: 800),
+              child: Image.asset(
+                StaticUtils.blackWhitePhoto,
+                height: height * 0.27,
+              ),
+            ),
           ),
           SizedBox(
             height: height * 0.03,
@@ -81,7 +90,7 @@ class AboutMobile extends StatelessWidget {
             padding: EdgeInsets.zero,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 5.5,
-              crossAxisCount: 4,
+              crossAxisCount: 2,
               mainAxisSpacing: 6,
               crossAxisSpacing: 6,
             ),

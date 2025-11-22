@@ -15,7 +15,7 @@ class NavBarLogo extends StatelessWidget {
           style: AppText.b1!.copyWith(),
         ),
         Text(
-          "zi_dev",
+          "zi_dev_flutter_magang",
           style: AppText.b1b!.copyWith(
             fontFamily: 'Montserrat',
           ),

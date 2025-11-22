@@ -1,74 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:zi_dev_web/configs/core_theme.dart' as theme;
-import 'package:zi_dev_web/provider/app_provider.dart';
-import 'package:zi_dev_web/provider/drawer_provider.dart';
-import 'package:zi_dev_web/provider/scroll_provider.dart';
-import 'package:zi_dev_web/sections/main_section/main_section.dart';
+import 'package:zi_dev_web/controller/theme_data_controller.dart';
+import 'package:zi_dev_web/core/bindings/initial_binding.dart';
+import 'package:zi_dev_web/core/routes/app_pages.dart';
 
-void main() {
+void main() async {
+  // Ensure Flutter binding is initialized
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Remove # from URL for web
   setPathUrlStrategy();
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  MyAppState createState() => MyAppState();
-}
-
-class MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AppProvider()),
-        ChangeNotifierProvider(create: (_) => DrawerProvider()),
-        ChangeNotifierProvider(create: (_) => ScrollProvider()),
-      ],
-      child: Consumer<AppProvider>(
-        builder: (context, value, _) => MaterialChild(
-          provider: value,
-        ),
-      ),
-    );
-  }
-}
-
-class MaterialChild extends StatefulWidget {
-  final AppProvider provider;
-  const MaterialChild({Key? key, required this.provider}) : super(key: key);
-
-  @override
-  State<MaterialChild> createState() => _MaterialChildState();
-}
-
-class _MaterialChildState extends State<MaterialChild> {
-  void initAppTheme() {
-    final appProviders = AppProvider.state(context);
-    appProviders.init();
-  }
-
-  @override
-  void initState() {
-    initAppTheme();
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'zi_dev',
-      theme: theme.themeLight,
-      darkTheme: theme.themeDark,
-      themeMode: widget.provider.themeMode,
-      initialRoute: "/",
-      routes: {
-        "/": (context) => const MainPage(),
+    return GetBuilder<HomeController>(
+      init: HomeController(),
+      global: true,
+      builder: (controller) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Moh Fauzi Slamet - Portfolio',
+          theme: theme.themeLight,
+          darkTheme: theme.themeDark,
+          themeMode: controller.themeMode,
+          initialBinding: InitialBinding(),
+          initialRoute: AppPages.initial,
+          getPages: AppPages.routes,
+          defaultTransition: Transition.fade,
+        );
       },
     );
   }

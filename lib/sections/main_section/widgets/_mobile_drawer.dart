@@ -5,12 +5,11 @@ class _MobileDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
-    final scrollProvider = Provider.of<ScrollProvider>(context);
+    final controller = Get.find<HomeController>();
 
     return Drawer(
       child: Material(
-        color: appProvider.isDark ? Colors.grey[900] : Colors.white,
+        color: controller.isDark ? Colors.grey[900] : Colors.white,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 25.0, 0, 0),
           child: Column(
@@ -30,10 +29,9 @@ class _MobileDrawer extends StatelessWidget {
                 ),
                 trailing: Switch(
                   inactiveTrackColor: Colors.grey,
-                  value: appProvider.isDark,
+                  value: controller.isDark,
                   onChanged: (value) {
-                    appProvider
-                        .setTheme(value ? ThemeMode.dark : ThemeMode.light);
+                    controller.setTheme(value ? ThemeMode.dark : ThemeMode.light);
                   },
                   activeColor: AppTheme.c!.primary,
                 ),
@@ -45,7 +43,7 @@ class _MobileDrawer extends StatelessWidget {
                       child: MaterialButton(
                         hoverColor: AppTheme.c!.primary!.withAlpha(70),
                         onPressed: () {
-                          scrollProvider.scrollMobile(e.key);
+                          controller.scrollMobile(e.key);
                           Navigator.pop(context);
                         },
                         child: ListTile(

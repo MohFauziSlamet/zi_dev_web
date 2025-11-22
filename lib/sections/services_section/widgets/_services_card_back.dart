@@ -1,8 +1,7 @@
 part of '../services.dart';
 
 class _ServiceCardBackWidget extends StatelessWidget {
-  const _ServiceCardBackWidget(
-      {Key? key, required this.serviceDesc, required this.serviceTitle})
+  const _ServiceCardBackWidget({Key? key, required this.serviceDesc, required this.serviceTitle})
       : super(key: key);
 
   final String serviceDesc;
@@ -10,7 +9,7 @@ class _ServiceCardBackWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
+    final controller = Get.find<HomeController>();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -19,7 +18,7 @@ class _ServiceCardBackWidget extends StatelessWidget {
           style: AppText.l1,
         ),
         Divider(
-          color: appProvider.isDark ? Colors.white : Colors.black38,
+          color: controller.isDark ? Colors.white : Colors.black38,
         ),
         SizedBox(
           height: AppDimensions.normalize(14),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zi_dev_web/configs/configs.dart';
 import 'package:zi_dev_web/constants.dart';
-import 'package:zi_dev_web/provider/app_provider.dart';
-
-import 'package:provider/provider.dart';
+import 'package:zi_dev_web/controller/theme_data_controller.dart';
 
 class ProjectCard extends StatefulWidget {
   final String? banner;
@@ -31,7 +30,7 @@ class ProjectCardState extends State<ProjectCard> {
 
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
+    final controller = Get.find<HomeController>();
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
@@ -62,7 +61,7 @@ class ProjectCardState extends State<ProjectCard> {
         width: AppDimensions.normalize(150),
         height: AppDimensions.normalize(90),
         decoration: BoxDecoration(
-          color: appProvider.isDark ? Colors.grey[900] : Colors.white,
+          color: controller.isDark ? Colors.grey[900] : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: isHover
               ? [

@@ -24,15 +24,9 @@ class _ToolTechWidgetState extends State<ToolTechWidget> {
         // cardKey.currentState!.toggleCard();
       },
       onHover: (value) {
-        if (value) {
-          setState(() async {
-            isHover = true;
-          });
-        } else {
-          setState(() {
-            isHover = false;
-          });
-        }
+        setState(() {
+          isHover = value;
+        });
       },
       child: Row(
         children: [

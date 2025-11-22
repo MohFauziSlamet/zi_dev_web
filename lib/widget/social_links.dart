@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 import 'package:zi_dev_web/configs/configs.dart';
 import 'package:zi_dev_web/constants.dart';
-import 'package:zi_dev_web/provider/app_provider.dart';
+import 'package:zi_dev_web/controller/theme_data_controller.dart';
 import 'package:zi_dev_web/responsive/responsive.dart';
 import 'package:zi_dev_web/utils/utils.dart';
 
@@ -12,7 +12,7 @@ class SocialLinks extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
+    final controller = Get.find<HomeController>();
     return Wrap(
       runSpacing: AppDimensions.normalize(10),
       alignment: WrapAlignment.center,
@@ -30,7 +30,7 @@ class SocialLinks extends StatelessWidget {
                   splashRadius: AppDimensions.normalize(12),
                   icon: Image.network(
                     e.value,
-                    color: appProvider.isDark ? Colors.white : Colors.black,
+                    color: controller.isDark ? Colors.white : Colors.black,
                     height: Responsive.isMobile(context) ? AppDimensions.normalize(10) : null,
                   ),
                   // iconSize: AppDimensions.normalize(10),

@@ -13,9 +13,8 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    
-
+    final size = MediaQuery.of(context).size;
+    AppText.init(context);
     return SizedBox(
       height: size.height * 1.02,
       child: Stack(
@@ -31,9 +30,7 @@ class HomeTab extends StatelessWidget {
                 duration: const Duration(milliseconds: 800),
                 child: Image.asset(
                   StaticUtils.blackWhitePhoto,
-                  height: size.width < 1200
-                      ? size.height * 0.75
-                      : size.height * 0.85,
+                  height: size.height * 0.75,
                 ),
               ),
             ),
@@ -70,7 +67,7 @@ class HomeTab extends StatelessWidget {
                 ),
                 Space.y1!,
                 Text(
-                  "Moh Fauzi",
+                  "Moh Fauzi Anton",
                   style: AppText.h1!.copyWith(
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w100,
@@ -95,12 +92,12 @@ class HomeTab extends StatelessWidget {
                       AnimatedTextKit(
                         animatedTexts: [
                           TyperAnimatedText(
-                            ' Flutter Developer',
+                            ' Flutter Developer Expert',
                             speed: const Duration(milliseconds: 50),
                             textStyle: AppText.b1,
                           ),
                           TyperAnimatedText(
-                            ' UI/UX Enthusiast',
+                            ' Laravel Developer Expert',
                             speed: const Duration(milliseconds: 50),
                             textStyle: AppText.b1,
                           ),

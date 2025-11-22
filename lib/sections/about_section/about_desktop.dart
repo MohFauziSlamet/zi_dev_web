@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
+import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/app_dimensions.dart';
 import 'package:zi_dev_web/configs/app_theme.dart';
 import 'package:zi_dev_web/configs/app_typography.dart';
@@ -18,8 +19,7 @@ class AboutDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
 
     return Container(
       padding: Space.h,
@@ -35,15 +35,22 @@ class AboutDesktop extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: Image.asset(
-                  StaticUtils.blackWhitePhoto,
-                  height: height * 0.7,
+                child: Opacity(
+                  opacity: 0.9,
+                  child: EntranceFader(
+                    offset: const Offset(0, 0),
+                    delay: const Duration(seconds: 1),
+                    duration: const Duration(milliseconds: 800),
+                    child: Image.asset(
+                      StaticUtils.blackWhitePhoto,
+                      height: size.height * 0.7,
+                    ),
+                  ),
                 ),
               ),
               Expanded(
-                flex: width < 1230 ? 2 : 1,
                 child: Container(
-                  padding: EdgeInsets.only(left: width < 1230 ? 25.0 : 0),
+                  padding: EdgeInsets.only(left: AppDimensions.normalize(10)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -173,8 +180,8 @@ class AboutDesktop extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                width: width < 1230 ? width * 0.05 : width * 0.1,
+              SizedBox(
+                width: size.width * 0.05,
               ),
             ],
           )

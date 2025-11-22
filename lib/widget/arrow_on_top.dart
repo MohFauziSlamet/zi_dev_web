@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 import 'package:zi_dev_web/animations/entrance_fader.dart';
 import 'package:zi_dev_web/configs/app_dimensions.dart';
 import 'package:zi_dev_web/configs/app_theme.dart';
-import 'package:zi_dev_web/provider/app_provider.dart';
-import 'package:zi_dev_web/provider/scroll_provider.dart';
+import 'package:zi_dev_web/controller/theme_data_controller.dart';
 
 class ArrowOnTop extends StatefulWidget {
   const ArrowOnTop({Key? key}) : super(key: key);
@@ -18,8 +16,7 @@ class ArrowOnTopState extends State<ArrowOnTop> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
-    final appProvider = Provider.of<AppProvider>(context);
-    final scrollProvider = Provider.of<ScrollProvider>(context);
+    final controller = Get.find<HomeController>();
 
     return Positioned(
       bottom: AppDimensions.normalize(30),
@@ -27,14 +24,13 @@ class ArrowOnTopState extends State<ArrowOnTop> {
       child: EntranceFader(
         offset: const Offset(0, 20),
         child: Padding(
-          padding:
-              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.025),
+          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.025),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               InkWell(
                 borderRadius: BorderRadius.circular(8.0),
-                onTap: () => scrollProvider.scroll(0),
+                onTap: () => controller.scroll(0),
                 onHover: (isHovering) {
                   if (isHovering) {
                     setState(() {
@@ -48,7 +44,7 @@ class ArrowOnTopState extends State<ArrowOnTop> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: appProvider.isDark ? Colors.white : Colors.black,
+                    color: controller.isDark ? Colors.white : Colors.black,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8.0),
                       bottomLeft: Radius.circular(8.0),

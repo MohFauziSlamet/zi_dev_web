@@ -13,7 +13,7 @@ class HomeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     AppTheme.init(context);
 
     return Container(
@@ -33,7 +33,7 @@ class HomeDesktop extends StatelessWidget {
                 duration: const Duration(milliseconds: 800),
                 child: Image.asset(
                   StaticUtils.blackWhitePhoto,
-                  height: size.width < 1200 ? size.height * 0.8 : size.height * 0.85,
+                  height: size.height * 0.85,
                 ),
               ),
             ),

@@ -7,10 +7,10 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scrollProvider = Provider.of<ScrollProvider>(context);
+    final controller = Get.find<HomeController>();
 
     return ListView.builder(
-      controller: scrollProvider.controller,
+      controller: controller.controller,
       itemCount: BodyUtils.views.length,
       itemBuilder: (context, index) => BodyUtils.views[index],
     );
